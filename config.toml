@@ -1,8 +1,13 @@
 [solution]
-name = "my-team-solution-v1"      # Solution name
-definition = "fused_moe"          # Track: fused_moe | sparse_attention | gated_delta_net
-author = "team-name"              # Team/author name
+name = "avengers-moe-v1"
+definition = "moe_fp8_block_scale_ds_routing_topk8_ng8_kg4_e32_h7168_i2048"
+author = "avengers"
+description = "Avengers optimized CUDA kernel for MoE FP8 block-scale DS routing"
 
 [build]
-language = "triton"               # triton | cuda
-entry_point = "kernel"            # Kernel function name
+language = "cuda"               # triton | cuda
+entry_point = "main.cpp::run"  # {file_path}::{function_name}
+target_hardware = ["B200"]
+dependencies = []
+destination_passing_style = false
+binding = "torch"
