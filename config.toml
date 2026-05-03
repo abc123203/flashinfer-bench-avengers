@@ -5,9 +5,9 @@ author = "avengers"
 description = "Avengers optimized CUDA kernel for MoE FP8 block-scale DS routing"
 
 [build]
-language = "cuda"               # triton | cuda
-entry_point = "main.cpp::run"  # {file_path}::{function_name}
+language = "python"
+entry_point = "main.py::run"
 target_hardware = ["B200"]
 dependencies = []
 destination_passing_style = false
-binding = "torch"
+source_dir = "cuda"
